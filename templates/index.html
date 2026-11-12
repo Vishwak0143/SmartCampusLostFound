@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}CampusFind | Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div><p class="eyebrow">SR UNIVERSITY · CAMPUS COMMUNITY</p><h1>Lost something?<br><span>Let's find it.</span></h1>
+  <p class="lead">A simple, central place to report missing belongings, share found items and coordinate safe returns.</p>
+  <a class="button" href="{{ url_for('register') }}">Get started</a> <a class="button secondary" href="{{ url_for('login') }}">Sign in</a></div>
+  <div class="hero-card"><div class="hero-icon">⌕</div><h3>One campus. One place.</h3><p>Search reports by item category and campus location.</p><div class="mini-stat"><strong>Report</strong><strong>Search</strong><strong>Recover</strong></div></div>
+</section>
+{% endblock %}

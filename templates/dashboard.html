@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Dashboard | CampusFind{% endblock %}
+{% block content %}<div class="page-head"><div><p class="eyebrow">YOUR CAMPUS OVERVIEW</p><h1>Hello, {{ current_user.name.split()[0] }}.</h1><p class="muted">Here's the latest lost-and-found activity.</p></div><a class="button" href="{{ url_for('new_item') }}">＋ Report an item</a></div>
+<div class="stats">
+<div class="stat"><span>Lost reports</span><strong>{{ stats.lost }}</strong></div><div class="stat"><span>Found reports</span><strong>{{ stats.found }}</strong></div><div class="stat"><span>Pending claims</span><strong>{{ stats.pending }}</strong></div><div class="stat"><span>Items returned</span><strong>{{ stats.returned }}</strong></div>
+</div>
+<div class="section-head"><h2>Recent reports</h2><a href="{{ url_for('items') }}">Browse all →</a></div>
+{% if recent %}<div class="item-grid">{% for item in recent %}<a class="item-card" href="{{ url_for('item_detail', item_id=item.id) }}"><span class="tag {{ item.report_type|lower }}">{{ item.report_type }}</span><h3>{{ item.title }}</h3><p>{{ item.category }} · {{ item.location }}</p><small>{{ item.report_date.strftime('%d %b %Y') }} · {{ item.status }}</small></a>{% endfor %}</div>{% else %}<div class="empty">No reports yet. Be the first to add one.</div>{% endif %}
+{% endblock %}

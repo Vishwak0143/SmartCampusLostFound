@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Register | CampusFind{% endblock %}
+{% block content %}<section class="form-card"><p class="eyebrow">JOIN THE CAMPUS COMMUNITY</p><h1>Create account</h1><form method="post">
+<label>Full name<input name="name" maxlength="100" required></label>
+<label>Email address<input type="email" name="email" required></label>
+<label>Password (minimum 8 characters)<input type="password" name="password" minlength="8" required></label>
+<button class="button" type="submit">Register</button></form><p class="muted">Already registered? <a href="{{ url_for('login') }}">Sign in</a></p></section>{% endblock %}

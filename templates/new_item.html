@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Report an item | CampusFind{% endblock %}
+{% block content %}<section class="form-card wide"><p class="eyebrow">CONTRIBUTE TO THE COMMUNITY</p><h1>Report an item</h1><form method="post">
+<label>Report type<select name="report_type" required><option value="LOST">I lost an item</option><option value="FOUND">I found an item</option></select></label>
+<label>Item title<input name="title" maxlength="120" placeholder="e.g. Black water bottle" required></label>
+<label>Category<select name="category" required><option value="">Choose category</option>{% for c in ['Electronics','ID Card','Books','Wallet','Keys','Clothing','Accessories','Other'] %}<option>{{ c }}</option>{% endfor %}</select></label>
+<label>Campus location<input name="location" placeholder="e.g. Central Library" required></label>
+<label>Date lost/found<input type="date" name="report_date" required></label>
+<label>Description<textarea name="description" rows="4" required></textarea></label>
+<button class="button" type="submit">Submit report</button></form></section>{% endblock %}

@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}My activity | CampusFind{% endblock %}
+{% block content %}<p class="eyebrow">PERSONAL TRACKER</p><h1>My activity</h1><h2>My reports</h2>
+{% if items %}<div class="table-wrap"><table><tr><th>Item</th><th>Type</th><th>Location</th><th>Status</th></tr>{% for i in items %}<tr><td><a href="{{ url_for('item_detail', item_id=i.id) }}">{{ i.title }}</a></td><td>{{ i.report_type }}</td><td>{{ i.location }}</td><td>{{ i.status }}</td></tr>{% endfor %}</table></div>{% else %}<p class="empty">You have not submitted any reports.</p>{% endif %}
+<h2>Your claims</h2>{% if claims %}<div class="table-wrap"><table><tr><th>Item</th><th>Submitted</th><th>Status</th></tr>{% for c in claims %}<tr><td>{{ c.item.title }}</td><td>{{ c.created_at.strftime('%d %b %Y') }}</td><td>{{ c.status }}</td></tr>{% endfor %}</table></div>{% else %}<p class="empty">You have not submitted any claims.</p>{% endif %}{% endblock %}
